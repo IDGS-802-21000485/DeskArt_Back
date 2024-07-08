@@ -15,11 +15,7 @@ public partial class Producto
 
     public string? Precio { get; set; }
 
-    public int? ÁreaIdÁrea { get; set; }
-
     public virtual ICollection<Recetum> Receta { get; set; } = new List<Recetum>();
 
     public virtual ICollection<VentaProd> VentaProds { get; set; } = new List<VentaProd>();
-
-    public virtual Área? ÁreaIdÁreaNavigation { get; set; }
 }

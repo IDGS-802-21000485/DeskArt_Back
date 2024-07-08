@@ -9,7 +9,5 @@ public partial class Área
 
     public string? Tipo { get; set; }
 
-    public virtual ICollection<Producto> Productos { get; set; } = new List<Producto>();
-
     public virtual ICollection<UsuarioTiendum> UsuarioTienda { get; set; } = new List<UsuarioTiendum>();
 }
