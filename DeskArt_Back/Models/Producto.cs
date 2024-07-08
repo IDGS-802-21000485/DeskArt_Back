@@ -7,6 +7,10 @@ public partial class Producto
 {
     public int IdProducto { get; set; }
 
+    public string? Nombre { get; set; }
+
+    public string? Descripcion { get; set; }
+
     public string? Alto { get; set; }
 
     public string? Largo { get; set; }
@@ -14,6 +18,8 @@ public partial class Producto
     public string? Ancho { get; set; }
 
     public string? Precio { get; set; }
+
+    public string? Imagen { get; set; }
 
     public virtual ICollection<Recetum> Receta { get; set; } = new List<Recetum>();
 

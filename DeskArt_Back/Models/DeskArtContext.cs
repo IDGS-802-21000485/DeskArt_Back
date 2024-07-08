@@ -57,7 +57,7 @@ public partial class DeskArtContext : DbContext
     {
         modelBuilder.Entity<CompraProd>(entity =>
         {
-            entity.HasKey(e => e.IdCompraProd).HasName("PK__CompraPr__8467123787865DB7");
+            entity.HasKey(e => e.IdCompraProd).HasName("PK__CompraPr__846712371BD2EBD1");
 
             entity.ToTable("CompraProd");
 
@@ -75,7 +75,7 @@ public partial class DeskArtContext : DbContext
 
         modelBuilder.Entity<CompraTotal>(entity =>
         {
-            entity.HasKey(e => e.IdCompra).HasName("PK__CompraTo__48B99DB7D742DF5E");
+            entity.HasKey(e => e.IdCompra).HasName("PK__CompraTo__48B99DB7BC1D4E7D");
 
             entity.ToTable("CompraTotal");
 
@@ -95,7 +95,7 @@ public partial class DeskArtContext : DbContext
 
         modelBuilder.Entity<EstadoProduc>(entity =>
         {
-            entity.HasKey(e => e.IdEstadoProduc).HasName("PK__EstadoPr__424B982599690FD1");
+            entity.HasKey(e => e.IdEstadoProduc).HasName("PK__EstadoPr__424B9825159AAF64");
 
             entity.ToTable("EstadoProduc");
 
@@ -110,7 +110,7 @@ public partial class DeskArtContext : DbContext
 
         modelBuilder.Entity<Inventario>(entity =>
         {
-            entity.HasKey(e => e.IdInventario).HasName("PK__Inventar__8F145B0DCEFB14FA");
+            entity.HasKey(e => e.IdInventario).HasName("PK__Inventar__8F145B0D887CF08A");
 
             entity.ToTable("Inventario");
 
@@ -130,7 +130,7 @@ public partial class DeskArtContext : DbContext
 
         modelBuilder.Entity<LoginMobil>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__LoginMob__3213E83FF1AFD363");
+            entity.HasKey(e => e.Id).HasName("PK__LoginMob__3213E83FDA91B904");
 
             entity.ToTable("LoginMobil");
 
@@ -159,7 +159,7 @@ public partial class DeskArtContext : DbContext
 
         modelBuilder.Entity<MateriaP>(entity =>
         {
-            entity.HasKey(e => e.IdMateriaP).HasName("PK__MateriaP__6AC7E38F074934FF");
+            entity.HasKey(e => e.IdMateriaP).HasName("PK__MateriaP__6AC7E38F5EB029E1");
 
             entity.ToTable("MateriaP");
 
@@ -178,7 +178,7 @@ public partial class DeskArtContext : DbContext
 
         modelBuilder.Entity<Merma>(entity =>
         {
-            entity.HasKey(e => e.IdMerma).HasName("PK__Merma__248B3BCB583F9B76");
+            entity.HasKey(e => e.IdMerma).HasName("PK__Merma__248B3BCB2012CA50");
 
             entity.ToTable("Merma");
 
@@ -204,7 +204,7 @@ public partial class DeskArtContext : DbContext
 
         modelBuilder.Entity<Producción>(entity =>
         {
-            entity.HasKey(e => e.IdProducción).HasName("PK__Producci__CB8C74FD2C0A1524");
+            entity.HasKey(e => e.IdProducción).HasName("PK__Producci__CB8C74FDB2F8F969");
 
             entity.ToTable("Producción");
 
@@ -216,16 +216,16 @@ public partial class DeskArtContext : DbContext
 
             entity.HasOne(d => d.EstadoProducIdEstadoProducNavigation).WithMany(p => p.Produccións)
                 .HasForeignKey(d => d.EstadoProducIdEstadoProduc)
-                .HasConstraintName("FK__Producció__Estad__6383C8BA");
+                .HasConstraintName("FK__Producció__Estad__628FA481");
 
             entity.HasOne(d => d.VentaTotalIdVentaTotalNavigation).WithMany(p => p.Produccións)
                 .HasForeignKey(d => d.VentaTotalIdVentaTotal)
-                .HasConstraintName("FK__Producció__Venta__628FA481");
+                .HasConstraintName("FK__Producció__Venta__619B8048");
         });
 
         modelBuilder.Entity<Producto>(entity =>
         {
-            entity.HasKey(e => e.IdProducto).HasName("PK__Producto__07F4A13201D14DD6");
+            entity.HasKey(e => e.IdProducto).HasName("PK__Producto__07F4A1328EE87420");
 
             entity.ToTable("Producto");
 
@@ -240,10 +240,20 @@ public partial class DeskArtContext : DbContext
                 .HasMaxLength(65)
                 .IsUnicode(false)
                 .HasColumnName("ancho");
+            entity.Property(e => e.Descripcion)
+                .HasColumnType("text")
+                .HasColumnName("descripcion");
+            entity.Property(e => e.Imagen)
+                .HasColumnType("text")
+                .HasColumnName("imagen");
             entity.Property(e => e.Largo)
                 .HasMaxLength(65)
                 .IsUnicode(false)
                 .HasColumnName("largo");
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(65)
+                .IsUnicode(false)
+                .HasColumnName("nombre");
             entity.Property(e => e.Precio)
                 .HasMaxLength(65)
                 .IsUnicode(false)
@@ -252,7 +262,7 @@ public partial class DeskArtContext : DbContext
 
         modelBuilder.Entity<Proveedor>(entity =>
         {
-            entity.HasKey(e => e.IdProveedor).HasName("PK__Proveedo__A3FA8E6B9F8CDB1E");
+            entity.HasKey(e => e.IdProveedor).HasName("PK__Proveedo__A3FA8E6B3304AE0F");
 
             entity.ToTable("Proveedor");
 
@@ -279,7 +289,7 @@ public partial class DeskArtContext : DbContext
 
         modelBuilder.Entity<ProveedorHasMateriaP>(entity =>
         {
-            entity.HasKey(e => e.IdProveedorHasMateriaP).HasName("PK__Proveedo__DCB9816B890E621E");
+            entity.HasKey(e => e.IdProveedorHasMateriaP).HasName("PK__Proveedo__DCB9816B4151523F");
 
             entity.ToTable("Proveedor_has_MateriaP");
 
@@ -300,7 +310,7 @@ public partial class DeskArtContext : DbContext
 
         modelBuilder.Entity<Recetum>(entity =>
         {
-            entity.HasKey(e => e.IdReceta).HasName("PK__Receta__7D03FC81B7E22AA5");
+            entity.HasKey(e => e.IdReceta).HasName("PK__Receta__7D03FC816930575C");
 
             entity.Property(e => e.IdReceta)
                 .ValueGeneratedNever()
@@ -320,7 +330,7 @@ public partial class DeskArtContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuario__645723A62DAB7B3F");
+            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuario__645723A6EF73132D");
 
             entity.ToTable("Usuario");
 
@@ -371,7 +381,7 @@ public partial class DeskArtContext : DbContext
 
         modelBuilder.Entity<UsuarioTiendum>(entity =>
         {
-            entity.HasKey(e => e.IdUsuarioTienda).HasName("PK__UsuarioT__9AD114EDBEE43FB1");
+            entity.HasKey(e => e.IdUsuarioTienda).HasName("PK__UsuarioT__9AD114ED3C5656E4");
 
             entity.Property(e => e.IdUsuarioTienda)
                 .ValueGeneratedNever()
@@ -413,7 +423,7 @@ public partial class DeskArtContext : DbContext
 
         modelBuilder.Entity<VentaProd>(entity =>
         {
-            entity.HasKey(e => e.IdVentaProd).HasName("PK__VentaPro__5DBD9FCE453859A9");
+            entity.HasKey(e => e.IdVentaProd).HasName("PK__VentaPro__5DBD9FCE0F9B9E1C");
 
             entity.ToTable("VentaProd");
 
@@ -428,20 +438,20 @@ public partial class DeskArtContext : DbContext
 
             entity.HasOne(d => d.ProductoIdProductoNavigation).WithMany(p => p.VentaProds)
                 .HasForeignKey(d => d.ProductoIdProducto)
-                .HasConstraintName("FK__VentaProd__Produ__5AEE82B9");
+                .HasConstraintName("FK__VentaProd__Produ__59FA5E80");
 
             entity.HasOne(d => d.UsuarioIdUsuarioNavigation).WithMany(p => p.VentaProds)
                 .HasForeignKey(d => d.UsuarioIdUsuario)
-                .HasConstraintName("FK__VentaProd__Usuar__59FA5E80");
+                .HasConstraintName("FK__VentaProd__Usuar__59063A47");
 
             entity.HasOne(d => d.UsuarioTiendaIdUsuarioTienda1Navigation).WithMany(p => p.VentaProds)
                 .HasForeignKey(d => d.UsuarioTiendaIdUsuarioTienda1)
-                .HasConstraintName("FK__VentaProd__Usuar__59063A47");
+                .HasConstraintName("FK__VentaProd__Usuar__5812160E");
         });
 
         modelBuilder.Entity<VentaTotal>(entity =>
         {
-            entity.HasKey(e => e.IdVentaTotal).HasName("PK__VentaTot__84233CBBAD7DC875");
+            entity.HasKey(e => e.IdVentaTotal).HasName("PK__VentaTot__84233CBBC6566D50");
 
             entity.ToTable("VentaTotal");
 
@@ -453,12 +463,12 @@ public partial class DeskArtContext : DbContext
 
             entity.HasOne(d => d.VentaProdIdVentaProdNavigation).WithMany(p => p.VentaTotals)
                 .HasForeignKey(d => d.VentaProdIdVentaProd)
-                .HasConstraintName("FK__VentaTota__Venta__5DCAEF64");
+                .HasConstraintName("FK__VentaTota__Venta__5CD6CB2B");
         });
 
         modelBuilder.Entity<Área>(entity =>
         {
-            entity.HasKey(e => e.IdÁrea).HasName("PK__Área__787B6F3695499EBF");
+            entity.HasKey(e => e.IdÁrea).HasName("PK__Área__787B6F36249EFEE4");
 
             entity.ToTable("Área");
 
