@@ -109,7 +109,66 @@ namespace DeskArt_Back.Controllers
             return Ok($"Se agregó el usuario: {usuarioL.Nombre} exitosamente");
         }
 
-        
+        [HttpPut]
+        [Route("/api/actualizar/{id}")]
+        public async Task<IActionResult> ActualizarUsuario(int id, [FromBody] LoginMobil usuarioL)
+        {
+            try
+            {
+                // Validación de ID
+                if (id <= 0)
+                {
+                    return BadRequest("ID de usuario no válido.");
+                }
+
+                // Validación de email no vacío
+                if (string.IsNullOrWhiteSpace(usuarioL.Email))
+                {
+                    return BadRequest("El email no puede estar vacío.");
+                }
+
+                // Validación de formato de email
+                if (!IsValidEmail(usuarioL.Email))
+                {
+                    return BadRequest("El formato del email no es válido.");
+                }
+
+                // Validación de contraseña no vacía
+                if (string.IsNullOrWhiteSpace(usuarioL.Contrasena))
+                {
+                    return BadRequest("La contraseña no puede estar vacía.");
+                }
+
+                // Validación de nombre no vacío
+                if (string.IsNullOrWhiteSpace(usuarioL.Nombre))
+                {
+                    return BadRequest("El nombre no puede estar vacío.");
+                }
+
+                // Verificar si el usuario existe en la base de datos por su ID
+                var usuarioExistente = await _baseDatos.LoginMobils.FirstOrDefaultAsync(u => u.Id == id);
+
+                if (usuarioExistente == null)
+                {
+                    return NotFound("Usuario no encontrado");
+                }
+
+                // Actualizar los datos del usuario
+                usuarioExistente.Email = usuarioL.Email;
+                usuarioExistente.Contrasena = usuarioL.Contrasena;
+                usuarioExistente.Nombre = usuarioL.Nombre;
+
+                _baseDatos.Update(usuarioExistente);
+                await _baseDatos.SaveChangesAsync();
+
+                return Ok($"Se actualizó el usuario con ID {id} exitosamente");
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones, puedes loguear el error o retornar un BadRequest con un mensaje genérico
+                return BadRequest("Ocurrió un error al intentar actualizar al usuario.");
+            }
+        }
 
 
     }
