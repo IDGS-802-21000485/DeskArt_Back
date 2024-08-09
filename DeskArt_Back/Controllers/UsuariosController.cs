@@ -109,8 +109,58 @@ namespace DeskArt_Back.Controllers
             return Ok($"Se agregó el usuario: {usuarioL.Nombre} exitosamente");
         }
 
-        
+        [HttpPut]
+        [Route("/api/actualizar")]
+        public async Task<IActionResult> ActualizarUsuario([FromBody] LoginMobil usuarioL)
+        {
+            // Validación de ID no vacío
+            if (usuarioL.Id == 0)
+            {
+                return BadRequest("El ID del usuario es necesario para actualizar.");
+            }
 
+            // Validación de email no vacío
+            if (string.IsNullOrWhiteSpace(usuarioL.Email))
+            {
+                return BadRequest("El email no puede estar vacío.");
+            }
 
+            // Validación de formato de email
+            if (!IsValidEmail(usuarioL.Email))
+            {
+                return BadRequest("El formato del email no es válido.");
+            }
+
+            // Validación de contraseña no vacía
+            if (string.IsNullOrWhiteSpace(usuarioL.Contrasena))
+            {
+                return BadRequest("La contraseña no puede estar vacía.");
+            }
+
+            // Validación de nombre no vacío
+            if (string.IsNullOrWhiteSpace(usuarioL.Nombre))
+            {
+                return BadRequest("El nombre no puede estar vacío.");
+            }
+
+            // Buscar el usuario en la base de datos por ID
+            var usuarioExistente = await _baseDatos.LoginMobils.FindAsync(usuarioL.Id);
+
+            if (usuarioExistente == null)
+            {
+                return NotFound("El usuario no existe.");
+            }
+
+            // Actualizar los datos del usuario
+            usuarioExistente.Email = usuarioL.Email;
+            usuarioExistente.Contrasena = usuarioL.Contrasena;
+            usuarioExistente.Nombre = usuarioL.Nombre;
+
+            // Guardar los cambios en la base de datos
+            _baseDatos.LoginMobils.Update(usuarioExistente);
+            await _baseDatos.SaveChangesAsync();
+
+            return Ok($"Se actualizó el usuario: {usuarioL.Nombre} exitosamente");
+        }
     }
 }
