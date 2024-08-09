@@ -7,7 +7,7 @@ public partial class CompraTotal
 {
     public int IdCompra { get; set; }
 
-    public string? Descripción { get; set; }
+    public string? Descripcion { get; set; }
 
     public double? Total { get; set; }
 

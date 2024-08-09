@@ -7,7 +7,7 @@ public partial class EstadoProduc
 {
     public int IdEstadoProduc { get; set; }
 
-    public string? Descripción { get; set; }
+    public string? Descripcion { get; set; }
 
-    public virtual ICollection<Producción> Produccións { get; set; } = new List<Producción>();
+    public virtual ICollection<Produccion> Produccions { get; set; } = new List<Produccion>();
 }

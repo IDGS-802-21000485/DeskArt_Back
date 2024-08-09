@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using DeskArt_Back.Models;
+//using DeskArt_Back.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DeskArt_Back.Controllers
@@ -9,7 +9,7 @@ namespace DeskArt_Back.Controllers
     public class ProveedorController : ControllerBase
     {
         // Creamos la variable de contexto
-        private readonly DeskArtContext _baseDatos;
+        /*private readonly DeskArtContext _baseDatos;
 
         public ProveedorController(DeskArtContext baseDatos)
         {
@@ -99,6 +99,6 @@ namespace DeskArt_Back.Controllers
         private bool ProveedorExists(int id)
         {
             return _baseDatos.Proveedors.Any(e => e.IdProveedor == id);
-        }
+        }*/
     }
 }

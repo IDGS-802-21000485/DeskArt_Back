@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace DeskArt_Back.Models;
 
-public partial class Producción
+public partial class Produccion
 {
-    public int IdProducción { get; set; }
+    public int IdProduccion { get; set; }
 
     public int? VentaTotalIdVentaTotal { get; set; }
 

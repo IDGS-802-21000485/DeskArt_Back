@@ -1,11 +1,11 @@
-﻿using DeskArt_Back.Models;
+﻿//using DeskArt_Back.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace DeskArt_Back.Controllers
 {
     public class UsuariosController : Controller
-    {
+    {/*
         //Creamos la variable de contexto
         private readonly DeskArtContext _baseDatos;
 
@@ -161,6 +161,6 @@ namespace DeskArt_Back.Controllers
             await _baseDatos.SaveChangesAsync();
 
             return Ok($"Se actualizó el usuario: {usuarioL.Nombre} exitosamente");
-        }
+        }*/
     }
 }

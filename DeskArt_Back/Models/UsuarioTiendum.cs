@@ -21,11 +21,11 @@ public partial class UsuarioTiendum
 
     public string? Email { get; set; }
 
-    public int? ÁreaIdÁrea { get; set; }
+    public int? Rol { get; set; }
+
+    public int? Estatus { get; set; }
 
     public virtual ICollection<Merma> Mermas { get; set; } = new List<Merma>();
 
     public virtual ICollection<VentaProd> VentaProds { get; set; } = new List<VentaProd>();
-
-    public virtual Área? ÁreaIdÁreaNavigation { get; set; }
 }

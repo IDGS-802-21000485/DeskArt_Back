@@ -1,4 +1,4 @@
-using DeskArt_Back.Models;
+//using DeskArt_Back.Models;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -16,7 +16,7 @@ var connectionaString = builder.Configuration.GetConnectionString("cadenaSQL");
 
 
 //Agregamos la configuracion para SQLSERVER
-builder.Services.AddDbContext<DeskArtContext>(options => options.UseSqlServer(connectionaString));
+//builder.Services.AddDbContext<DeskArtContext>(options => options.UseSqlServer(connectionaString));
 //Definimos la nueva politica CORS(CROSS-ORIGIN Resource Sharing) para la API
 
 builder.Services.AddCors(options =>

@@ -9,7 +9,7 @@ public partial class Merma
 
     public int? Cantidad { get; set; }
 
-    public string? Descripción { get; set; }
+    public string? Descripcion { get; set; }
 
     public int? MateriaPIdMateriaP { get; set; }
 

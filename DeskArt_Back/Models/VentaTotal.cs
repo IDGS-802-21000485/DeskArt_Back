@@ -13,7 +13,7 @@ public partial class VentaTotal
 
     public int? VentaProdIdVentaProd { get; set; }
 
-    public virtual ICollection<Producción> Produccións { get; set; } = new List<Producción>();
+    public virtual ICollection<Produccion> Produccions { get; set; } = new List<Produccion>();
 
     public virtual VentaProd? VentaProdIdVentaProdNavigation { get; set; }
 }
